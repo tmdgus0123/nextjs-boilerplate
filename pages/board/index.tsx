@@ -6,9 +6,9 @@ const BASE_URL = "http://openapi.seoul.go.kr:8088/5162554b4679656f3531794a524d56
 const Index = () => {
     const [result, setResult] = useState<any[]>([]);
     useEffect(() => {
-        (async () => {
-            const { data } = await axios.get(BASE_URL);
-        })();
+        axios.get(BASE_URL).then((res) => {
+            setResult(res.data.SeoulLibraryBookSearchInfo.row);
+        });
     }, []);
 
     return (
