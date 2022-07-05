@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 
 const BASE_URL = "http://openapi.seoul.go.kr:8088/5162554b4679656f3531794a524d56/json/SeoulLibraryBookSearchInfo/1/500/";
 
+const getServiceSideProps = () => {
+    
+}
+
 const Index = () => {
     const [result, setResult] = useState<any[]>([]);
     useEffect(() => {
