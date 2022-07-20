@@ -8,7 +8,7 @@ const Header = () => {
                     <Link href={"/"}>Home</Link>
                 </li>
                 <li>
-                    <Link href={"/board"}>Board</Link>
+                    <Link href={"/user"}>User</Link>
                 </li>
             </ul>
         </header>
