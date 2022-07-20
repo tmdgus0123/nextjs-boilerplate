@@ -5,7 +5,10 @@ const Header = () => {
         <header>
             <ul>
                 <li>
-                    <Link href={"/board"}>board</Link>
+                    <Link href={"/"}>Home</Link>
+                </li>
+                <li>
+                    <Link href={"/user"}>User</Link>
                 </li>
             </ul>
         </header>
