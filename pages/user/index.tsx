@@ -1,13 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { IUser } from "../api/user";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+import { IUser } from "@api/user";
 
 const Index = () => {
     const [result, setResult] = useState<IUser[]>([]);
@@ -18,30 +11,28 @@ const Index = () => {
     }, []);
 
     return (
-        <TableContainer component={Paper}>
-            <Table>
-                <TableHead>
-                    <TableRow>
+            <table>
+                <thead>
+                    <tr>
                         <th>No.</th>
                         <th>Name</th>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
+                    </tr>
+                </thead>
+                <tbody>
                     {result ? (
                         result.map((item, idx) => (
-                            <TableRow key={idx}>
-                                <TableCell align="center">{idx}</TableCell>
-                                <TableCell align="center">{item.name}</TableCell>
-                            </TableRow>
+                            <tr key={idx}>
+                                <td align="center">{idx}</td>
+                                <td align="center">{item.name}</td>
+                            </tr>
                         ))
                     ) : (
-                        <TableRow>
-                            <TableCell colSpan={2}>데이터가 없습니다.</TableCell>
-                        </TableRow>
+                        <tr>
+                            <td colSpan={2}>데이터가 없습니다.</td>
+                        </tr>
                     )}
-                </TableBody>
-            </Table>
-        </TableContainer>
+                </tbody>
+            </table>
     );
 };
 
