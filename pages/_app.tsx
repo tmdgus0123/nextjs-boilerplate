@@ -1,5 +1,6 @@
+import Body from "@/components/layout/body";
+import Header from "@/components/layout/header";
 import type { AppProps } from "next/app";
-import Header from "../components/layout/header";
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
