@@ -1,14 +1,20 @@
-import Body from "@/components/layout/body";
-import Header from "@/components/layout/header";
+import MainLayout from "@/components/layout/mainLayout";
+import { NextPage } from "next";
 import type { AppProps } from "next/app";
+import { ReactNode } from "react";
 
-function MyApp({ Component, pageProps }: AppProps) {
-    return (
-        <>
-            <Header />
-            <Component {...pageProps} />
-        </>
-    );
+export type NextPageWithLayout = NextPage & {
+    getLayout?: (page: ReactNode) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+    Component: NextPageWithLayout;
+};
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+    const getLayout = Component.getLayout ?? MainLayout;
+
+    return getLayout(<Component {...pageProps} />);
 }
 
 export default MyApp;
